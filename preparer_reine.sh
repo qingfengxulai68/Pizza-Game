@@ -10,7 +10,7 @@ echo "1. Trouver les ingrédients nécessaires dans le dossier ingrédient." >> 
 echo "2. Préparer les ingrédients dans le dossier préparation." >> recette.txt
 echo "3. Cuire la pizza dans le dossier cuisson." >> recette.txt
 echo "4. Enfin servez la pizza à Yafei et Gia." >> recette.txt
-echo "Affichez le fichier '$fichier_recette' pour savoir ce qu'il faut faire."
+echo "Affichez le fichier recette.txt pour savoir ce qu'il faut faire."
 
 # Lancer un chronomètre de 1 heure
 echo "Un chronomètre de 1 heure a été lancé pour la préparation."
