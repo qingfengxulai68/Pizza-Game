@@ -1,19 +1,16 @@
 #!/bin/bash
 
-# Nom du fichier contenant la recette
-fichier_recette="recette.txt"
-
 # Message de démarrage
 echo "=== Préparation de la pizza quatre formage ==="
 echo "La préparation d'une quatre fromage a commencé. 🍕"
 
 # Créer le fichier avec la recette complète
-echo "=== Recette de la pizza quatre fromage ===" > "$fichier_recette"
-echo "1. Trouver les ingrédients nécessaires dans le dossier ingrédient." >> "$fichier_recette"
-echo "2. Préparer les ingrédients dans le dossier préparation." >> "$fichier_recette"
-echo "3. Cuire la pizza dans le dossier cuisson." >> "$fichier_recette"
-echo "4. Enfin servez la pizza à Yafei et Gia." >> "$fichier_recette"
-echo "Affichez le fichier '$fichier_recette' pour savoir ce qu'il faut faire."
+echo "=== Recette de la pizza quatre fromage ===" > recette.txt
+echo "1. Trouver les ingrédients nécessaires dans le dossier ingrédient." >> recette.txt
+echo "2. Préparer les ingrédients dans le dossier préparation." >> recette.txt
+echo "3. Cuire la pizza dans le dossier cuisson." >> recette.txt
+echo "4. Enfin servez la pizza à Yafei et Gia." >> recette.txt
+echo "Affichez le fichier recette.txt pour savoir ce qu'il faut faire."
 
 # Lancer un chronomètre de 1 heure
 echo "Un chronomètre de 1 heure a été lancé pour la préparation."

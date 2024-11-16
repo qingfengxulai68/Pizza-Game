@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Définir les fichiers et dossiers à réinitialiser
-recette_files=("margherita/recette.txt" "reine/recette.txt" "quatre_fromages/recette.txt" "pepperoni/recette.txt")
+recette_files=("recette.txt")
 log_files=("margherita/logs.txt" "reine/logs.txt" "quatre_fromages/logs.txt" "pepperoni/logs.txt")
 
 # Supprimer les fichiers générés
