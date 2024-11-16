@@ -2,7 +2,6 @@
 margherita_script="./preparer_margherita.sh"
 reine_script="./preparer_reine.sh"
 quatre_fromages_script="./preparer_quatre_fromages.sh"
-pepperoni_script="./preparer_pepperoni.sh"
 
 # Afficher les options disponibles
 echo "=== Préparons ensemble une pizza pour Yafei et Gia ==="
@@ -10,7 +9,6 @@ echo "Quelle pizza souhaitez-vous préparer ?"
 echo "1. Margherita"
 echo "2. Reine"
 echo "3. 4 Fromages"
-echo "4. Pepperoni"
 echo -n "Entrez le numéro correspondant à votre choix : "
 
 # Collecter la réponse de l'utilisateur
@@ -40,14 +38,6 @@ case $choix in
             $quatre_fromages_script
         else
             echo "Erreur : le script $quatre_fromages_script est introuvable ou non exécutable."
-        fi
-        ;;
-    # 4)
-        echo "Vous avez choisi une Pepperoni. Préparation en cours..."
-        if [[ -x $pepperoni_script ]]; then
-            $pepperoni_script
-        else
-            echo "Erreur : le script $pepperoni_script est introuvable ou non exécutable."
         fi
         ;;
     # *)
