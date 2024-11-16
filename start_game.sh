@@ -16,7 +16,7 @@ read choix
 
 # Lancer le script correspondant
 case $choix in
-    # 1)
+    1)
         echo "Vous avez choisi une Margherita. Préparation en cours..."
         if [[ -x $margherita_script ]]; then
             $margherita_script
@@ -24,7 +24,7 @@ case $choix in
             echo "Erreur : le script $margherita_script est introuvable ou non exécutable."
         fi
         ;;
-    # 2)
+    2)
         echo "Vous avez choisi une Reine. Préparation en cours..."
         if [[ -x $reine_script ]]; then
             $reine_script
@@ -32,7 +32,7 @@ case $choix in
             echo "Erreur : le script $reine_script est introuvable ou non exécutable."
         fi
         ;;
-    # 3)
+    3)
         echo "Vous avez choisi une 4 Fromages. Préparation en cours..."
         if [[ -x $quatre_fromages_script ]]; then
             $quatre_fromages_script
@@ -40,7 +40,7 @@ case $choix in
             echo "Erreur : le script $quatre_fromages_script est introuvable ou non exécutable."
         fi
         ;;
-    # *)
+    *)
         echo "Choix invalide. Veuillez réessayer."
         ;;
 esac
