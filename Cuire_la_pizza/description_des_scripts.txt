@@ -1,0 +1,13 @@
+### Description des scripts du jeu
+
+**`start_cuire.sh` - Script de démarrage :**  
+Initialise le niveau, lance le processus simulant un incendie dans la cuisine et explique les objectifs de la mission au joueur.  
+
+**`fire_in_kitchen.sh` - Script de simulation d'incendie :**  
+Affiche en boucle le message "La cuisine est en feu !" et représente le processus cible que le joueur doit terminer.  
+
+**`verification_cuire.sh` - Script de vérification :**  
+Vérifie si le processus simulant l'incendie a été arrêté et confirme si le joueur a accompli la mission avec succès.  
+
+**`remise_a_zero.sh` - Script de réinitialisation :**  
+Arrête le processus simulant l'incendie, supprime l'utilisateur GordonRamsay créé pour ce niveau, et réinitialise l'environnement du jeu au statut initial.  
