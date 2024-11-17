@@ -25,6 +25,8 @@ done
 # Résultat final
 if [ "$missing_count" -eq 0 ]; then
     echo "Bravo ! Vous avez correctement collecté tous les ingrédients."
+    exit 0
 else
     echo "Certains ingrédients n'ont pas été collectés. Réessayez !"
+    exit 1
 fi
