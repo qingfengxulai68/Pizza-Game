@@ -11,29 +11,30 @@ echo "2. Reine"
 echo "3. 4 Fromages"
 echo -n "Entrez le numéro correspondant à votre choix : "
 
-# Collecter la réponse de l'utilisateur
 read choix
 
-# Lancer le script correspondant
 case $choix in
-    1)
+    1)  selected_pizza="margherita"
         echo "Vous avez choisi une Margherita. Préparation en cours..."
+        echo "$selected_pizza" > choix_pizza.txt
         if [[ -x $margherita_script ]]; then
             $margherita_script
         else
             echo "Erreur : le script $margherita_script est introuvable ou non exécutable."
         fi
         ;;
-    2)
+    2)  selected_pizza="reine"
         echo "Vous avez choisi une Reine. Préparation en cours..."
+        echo "$selected_pizza" > choix_pizza.txt
         if [[ -x $reine_script ]]; then
             $reine_script
         else
             echo "Erreur : le script $reine_script est introuvable ou non exécutable."
         fi
         ;;
-    3)
+    3)  selected_pizza="quatre_fromages"
         echo "Vous avez choisi une 4 Fromages. Préparation en cours..."
+        echo "$selected_pizza" > choix_pizza.txt
         if [[ -x $quatre_fromages_script ]]; then
             $quatre_fromages_script
         else
@@ -43,4 +44,7 @@ case $choix in
     *)
         echo "Choix invalide. Veuillez réessayer."
         ;;
+
+
+
 esac

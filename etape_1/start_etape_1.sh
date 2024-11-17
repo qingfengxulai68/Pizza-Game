@@ -1,50 +1,69 @@
 #!/bin/bash
 
-# Fonction pour générer un nom d'ingrédient aléatoire (hors des noms uniques)
-generate_random_ingredient() {
-    local ingredients=("poivrons" "olives" "oignons" "basilic" "huile_d_olive" "epices" "anchois" "capres" "crevettes" "roquette")
-    echo "${ingredients[RANDOM % ${#ingredients[@]}]}"
-}
+# Vérifier que le choix de la pizza existe
+if [ -f ../choix_pizza.txt ]; then
+    # Copier le fichier dans le dossier actuel
+    cp ../choix_pizza.txt .
+    echo "Fichier choix_pizza.txt copié dans le dossier actuel."
+else
+    echo "Erreur : choix_pizza.txt n'existe pas dans le dossier parent."
+fi
 
-# Générer la structure des dossiers
+
+# Lire le choix de la pizza
+selected_pizza=$(cat choix_pizza.txt)
+
+# Liste des ingrédients pour chaque pizza
+declare -A pizzas
+pizzas[margherita]="tomates pate_pizza fromages basilic"
+pizzas[reine]="tomates pate_pizza champignons jambon fromages"
+pizzas[quatre_fromages]="pate_pizza fromages bleu parmesan mozzarella"
+pizzas[pepperoni]="tomates pate_pizza pepperoni fromages"
+
+# Vérifier que la pizza sélectionnée est valide
+if [ -z "${pizzas[$selected_pizza]}" ]; then
+    echo "Erreur : la pizza sélectionnée ($selected_pizza) n'est pas valide."
+    exit 1
+fi
+
+# Liste aléatoire d'ingrédients supplémentaires
+extra_ingredients=("olives" "poivrons" "oignons" "anchois" "capres" "roquette" "huile_d_olive" "epices")
+
+# Générer une arborescence de dossiers aléatoires
 generate_structure() {
     local base_dir=$1
-    local depth=$2
-
-    if [ "$depth" -eq 0 ]; then
-        # Créer des fichiers aléatoires dans ce dossier
-        for i in {1..5}; do
-            random_ingredient=$(generate_random_ingredient)
-            touch "$base_dir/$random_ingredient.txt"
+    mkdir -p "$base_dir"
+    
+    # Créer 5 dossiers principaux
+    for i in {1..5}; do
+        local main_folder="$base_dir/main_folder_$i"
+        mkdir -p "$main_folder"
+        
+        # Chaque dossier principal contient 4 sous-dossiers
+        for j in {1..4}; do
+            local sub_folder="$main_folder/folder_$j"
+            mkdir -p "$sub_folder"
+            
+            # Chaque sous-dossier contient des fichiers d'ingrédients
+            for k in {1..5}; do
+                # Ajouter un ingrédient aléatoire
+                local random_ingredient=${extra_ingredients[RANDOM % ${#extra_ingredients[@]}]}
+                touch "$sub_folder/$random_ingredient.txt"
+            done
         done
-    else
-        # Créer 4 sous-dossiers dans ce dossier
-        for i in {1..4}; do
-            local sub_dir="$base_dir/folder_$i"
-            mkdir -p "$sub_dir"
-            generate_structure "$sub_dir" $((depth - 1))
-        done
-    fi
+    done
 }
 
-# Racine des dossiers
-root_dir="random_pizza_structure_unique"
-mkdir -p "$root_dir"
+# Générer l'arborescence
+base_dir="pizza_ingredients"
+generate_structure "$base_dir"
 
-# Générer 5 dossiers principaux avec la structure requise
-for i in {1..5}; do
-    main_dir="$root_dir/main_folder_$i"
-    mkdir -p "$main_dir"
-    generate_structure "$main_dir" 3
-done
-
-# Placer les fichiers uniques dans des emplacements aléatoires
-unique_ingredients=("tomates" "pate_pizza" "champignons" "jambon" "fromages")
-for ingredient in "${unique_ingredients[@]}"; do
-    # Choisir un dossier aléatoire dans l'arborescence
-    random_folder=$(find "$root_dir" -type d | shuf -n 1)
+# Ajouter les bons ingrédients à des emplacements aléatoires
+for ingredient in ${pizzas[$selected_pizza]}; do
+    random_folder=$(find "$base_dir" -type d | shuf -n 1)
     touch "$random_folder/$ingredient.txt"
-    echo "Fichier unique $ingredient.txt créé dans $random_folder"
 done
 
-echo "Structure de dossiers et fichiers générée avec succès dans le dossier '$root_dir'."
+echo "Trouvez et supprimez les fichiers suivants pour préparer une $selected_pizza :"
+echo "${pizzas[$selected_pizza]}" > ingredients_a_collecter.txt
+cat ingredients_a_collecter.txt
