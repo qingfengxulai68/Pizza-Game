@@ -16,10 +16,15 @@ if [ ! -f "./fire_in_kitchen.sh" ]; then
     exit 1
 fi
 """
-
 # Rendre le script 'fire_in_kitchen.sh' exécutable
 chmod +x ./fire_in_kitchen.sh
 
+
 # Lancer le processus simulant un incendie dans la cuisine
+
+"""
 ./fire_in_kitchen.sh &
 echo "Attention ! La cuisine est en feu ! Aidez le chef à éteindre l'incendie !"
+"""
+
+python3 fire.py &
