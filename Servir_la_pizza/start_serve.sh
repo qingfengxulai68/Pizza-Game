@@ -5,11 +5,9 @@
 
 echo "Bienvenue au Niveau 5 : Servir la pizza !"
 echo "Votre mission :"
-echo "1. Créez un répertoire nommé 'table' avec la commande suivante :"
-echo "   mkdir table"
-echo "2. Copiez le fichier 'pizza.txt' dans ce répertoire :"
-echo "   cp pizza.txt table/"
-echo "3. Exécutez './verification_serve.sh' pour vérifier votre progression."
+echo "1. Créez un répertoire nommé 'table' avec la commande mkdir "
+echo "2. Copiez le fichier 'pizza.txt' dans ce répertoire "
+echo "3. Exécutez 'verification_serve.sh' pour vérifier votre progression."
 
 # Prépare le fichier pizza.txt s'il n'existe pas
 if [ ! -f pizza.txt ]; then
