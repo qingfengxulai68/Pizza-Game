@@ -1,12 +1,20 @@
 #!/bin/bash
 
-# Script pour vérifier si le joueur a correctement terminé le niveau 4
+# Vérification si le processus 'fire.py' est actif
+if ps aux | grep -v grep | grep "python3 fire.py" > /dev/null; then
+    process_active=true
+else
+    process_active=false
+fi
 
-# Vérifie si le processus 'fire_in_kitchen' est toujours actif
-if ps aux | grep -v grep | grep "sh ./.fire_in_kitchen.sh" > /dev/null; then
+# Affichage de l'état du processus
+if [ "$process_active" = true ]; then
+    echo "Le processus 'fire.py' est actif."
     echo "Échec : Le processus 'fire_in_kitchen' est toujours actif. Veuillez le tuer avant de continuer."
     exit 1
 else
-    echo "Succès : Le feu est éteint, vous pouvez passer au niveau suivant !"
+    echo "Le processus 'fire.py' n'est pas actif."
+    echo "🎉 Félicitations ! Vous avez éteint le feu et invité Gordon Ramsay. Vous avez gagné ! 🎉"
     exit 0
 fi
+
