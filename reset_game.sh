@@ -2,7 +2,6 @@
 
 # Définir les fichiers et dossiers à réinitialiser
 recette_files=("recette.txt")
-log_files=("margherita/logs.txt" "reine/logs.txt" "quatre_fromages/logs.txt" "pepperoni/logs.txt")
 
 # Supprimer les fichiers générés
 echo "=== Réinitialisation du jeu ==="
