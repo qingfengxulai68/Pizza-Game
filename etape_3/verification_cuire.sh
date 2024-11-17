@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Vérifiaction que start est bien lancé
+if [ ! -f etat.txt ]; then
+    echo "Erreur : Lancez start_cuire.sh d'abord."
+    exit 1
+fi
+
 # Vérification si le processus 'fire.py' est actif
 if ps aux | grep -v grep | grep "python3 fire.py" > /dev/null; then
     process_active=true

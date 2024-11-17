@@ -2,7 +2,7 @@
 
 # Niveau 4 : Cuisson de la pizza
 # Script pour démarrer le niveau 4
-
+echo "etape 3 en cours" > etat.txt
 echo "Bienvenue au Niveau 4 : Cuire la pizza !"
 # Lancer le processus simulant un incendie dans la cuisine
 python3 fire.py &
