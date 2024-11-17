@@ -7,11 +7,18 @@ else
     user_exists=false
 fi
 
-# Vérification si le processus 'fire_in_kitchen' est actif
-if ps aux | grep -v grep | grep "./fire_in_kitchen.sh" > /dev/null; then
+# Vérification si le processus 'fire.py' est actif
+if ps aux | grep -v grep | grep "python3 fire.py" > /dev/null; then
     process_active=true
 else
     process_active=false
+fi
+
+# Affichage de l'état du processus
+if [ "$process_active" = true ]; then
+    echo "Le processus 'fire.py' est actif."
+else
+    echo "Le processus 'fire.py' n'est pas actif."
 fi
 
 # Évaluation des deux conditions
