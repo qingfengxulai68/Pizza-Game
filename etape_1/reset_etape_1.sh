@@ -2,7 +2,7 @@
 
 # Dossiers et fichiers à supprimer
 base_dir="pizza_ingredients"
-ingredients_file="ingredients_a_collecter.txt"
+ingredients_file="ingredients_a_collecter.txt" "choix_pizza.txt" "reussite.txt"
 
 echo "=== Réinitialisation du l'etape 1 ==="
 
