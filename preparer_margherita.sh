@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -f etat.txt ]; then
+    echo "Erreur : Lancez start_game.sh d'abord."
+    exit 1
+else
 # Message de démarrage
 echo "=== Préparation de la pizza Margherita ==="
 echo "La préparation d'une Margherita a commencé. 🍕"
@@ -20,3 +24,5 @@ chrono_pid=$!
 # Optionnel : Attendre la fin du chronomètre pour afficher un message
 wait $chrono_pid
 echo "1 heure est passé mais vous n'avez pas réussi à finir la préparation de la pizza. Yafei et Gia sont mortes de faim..."
+
+fi

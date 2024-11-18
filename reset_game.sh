@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Définir les fichiers et dossiers à réinitialiser
-recette_files=("recette.txt")
+# Définir les fichiers à réinitialiser
+reset_files=("recette.txt" "choix_pizza.txt" "etat.txt")
 
 # Supprimer les fichiers générés
 echo "=== Réinitialisation du jeu ==="
 
-for file in "${recette_files[@]}" "${log_files[@]}"; do
+for file in "${reset_files[@]}"; do
     if [[ -f "$file" ]]; then
         rm -f "$file"
         echo "Supprimé : $file"
