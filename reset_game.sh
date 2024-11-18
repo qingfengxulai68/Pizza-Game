@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Supprimer les fichiers générés
+echo "=== Réinitialisation du jeu ==="
+echo
 # Définir les fichiers à réinitialiser
 reset_files=("recette.txt" "choix_pizza.txt" "etat.txt" 
             "etape_1/choix_pizza.txt" "etape_1/ingredients_a_collecter.txt" "etape_1/reussite.txt"
@@ -8,13 +11,15 @@ reset_files=("recette.txt" "choix_pizza.txt" "etat.txt"
 
 reset_dir=("etape_1/pizza_ingredients" "etape_2/copie" "etape_4/table")
 
-# Supprimer l'arborescence des ingrédients
-if [ -d "$base_dir" ]; then
-    rm -rf "$base_dir"
-    echo "Dossier '$base_dir' supprimé."
-
-# Supprimer les fichiers générés
-echo "=== Réinitialisation du jeu ==="
+# Supprimer
+for dir in "${reset_dir[@]}"; do
+    if [ -d "$dir" ]; then
+        rm -rf "$dir"
+        echo "Dossier '$dir' supprimé."
+    else
+        echo "dossier introuvable, rien à supprimer : $file"
+    fi
+done
 
 for file in "${reset_files[@]}"; do
     if [[ -f "$file" ]]; then
