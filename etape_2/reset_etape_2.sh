@@ -4,7 +4,7 @@
 output_file="ping.txt"
 copy_dir="copie"
 
-echo "=== Réinitialisation de l'étape Ping ==="
+echo "=== Réinitialisation de l'étape 2 ==="
 
 # Supprimer le fichier ping.txt
 if [ -f "$output_file" ]; then

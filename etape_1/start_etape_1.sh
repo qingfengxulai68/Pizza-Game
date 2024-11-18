@@ -4,6 +4,7 @@
 if [ -f ../choix_pizza.txt ]; then
     # Copier le fichier dans le dossier actuel
     cp ../choix_pizza.txt .
+    
     # Lire le choix de la pizza
     selected_pizza=$(cat choix_pizza.txt)
 
@@ -57,13 +58,15 @@ if [ -f ../choix_pizza.txt ]; then
         random_folder=$(find "$base_dir" -type d | shuf -n 1)
         touch "$random_folder/$ingredient.txt"
     done
-
+    echo "=== Etape 1 : Récupérer les ingrédients nécessaires pour faire votre pizza ==="
+    echo
+    echo "Votre mission :"
     echo "Trouvez et supprimez les fichiers suivants pour préparer une $selected_pizza :"
     echo "${pizzas[$selected_pizza]}" > ingredients_a_collecter.txt
     cat ingredients_a_collecter.txt
-
+    echo "Une fois terminé, lancez le script de vérification pour valider cette étape."
 else
-    echo "Erreur : veuillez lancer start_game.sh d'abord."
+    echo "Erreur : veuillez lancer start_game.sh d'abord rohhh."
 fi
 
 
