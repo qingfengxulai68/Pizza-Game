@@ -5,7 +5,7 @@ choix_file="../choix_pizza.txt"
 
 # Vérification de l'existence du fichier choix_pizza.txt
 if [ ! -f "$choix_file" ]; then
-    echo "Erreur : le fichier $choix_file n'existe pas. Impossible de vérifier."
+    echo "Lancer le script start_game d'abord."
     exit 1
 fi
 
@@ -13,7 +13,7 @@ fi
 selected_pizza=$(cat "$choix_file")
 
 # Fichier attendu
-expected_file="copie/${selected_pizza}_ping.txt"
+expected_file="etape_2/copie/${selected_pizza}_ping.txt"
 
 # Vérifier l'existence du fichier renommé
 if [ ! -f "$expected_file" ]; then
