@@ -2,14 +2,15 @@
 
 # Vérifier que le fichier des ingrédients existe
 if [ ! -f ingredients_a_collecter.txt ]; then
-    
+    echo "Erreur : Lancez start_etape_1.sh d'abord."
+    exit 1
 fi
 
 # Charger les ingrédients nécessaires
 read -r -a required_ingredients < ingredients_a_collecter.txt
 
 # Base des dossiers
-base_dir="pizza_ingredients"
+base_dir="/pizza_ingredients"
 
 # Vérifier que les fichiers ont été supprimés
 missing_count=0
