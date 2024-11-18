@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Réinitialisation du niveau 5
-
+# Réinitialisation du niveau 4
+echo "=== Réinitialisation de l'étape 4 ==="
 # Supprime le répertoire table s'il existe
 if [ -d table ]; then
     rm -r table

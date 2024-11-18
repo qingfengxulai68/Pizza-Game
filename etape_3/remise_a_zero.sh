@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "=== Réinitialisation de l'étape 3 ==="
 # Nom du fichier
 file="etat.txt"
 
