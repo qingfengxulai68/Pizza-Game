@@ -13,7 +13,7 @@ fi
 selected_pizza=$(cat "$choix_file")
 
 # Fichier attendu
-expected_file="etape_2/copie/${selected_pizza}_ping.txt"
+expected_file="copie/${selected_pizza}_ping.txt"
 
 # Vérifier l'existence du fichier renommé
 if [ ! -f "$expected_file" ]; then
