@@ -3,7 +3,6 @@
 # Vérifier que le fichier des ingrédients existe
 if [ ! -f ingredients_a_collecter.txt ]; then
     echo "Erreur : Lancez start_etape_1.sh d'abord."
-    exit 1
 fi
 
 # Charger les ingrédients nécessaires
@@ -25,8 +24,8 @@ done
 # Résultat final
 if [ "$missing_count" -eq 0 ]; then
     echo "Bravo ! Vous avez correctement collecté tous les ingrédients."
-    exit 0
+    echo "1)reussi" > reussite.txt
+    
 else
     echo "Certains ingrédients n'ont pas été collectés. Réessayez !"
-    exit 1
 fi
